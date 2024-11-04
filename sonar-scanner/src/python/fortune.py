@@ -52,13 +52,13 @@ def get(filename):
     data = datfile.read(5 * LONG_SIZE)
     if is_64_bit:
         v1, v2, n1, n2, l1, l2, s1, s2, f1, f2 = struct.unpack('!10L', data)
-        version  = v1 + (v2 << 32)
+        _  = v1 + (v2 << 32)
         numstr   = n1 + (n2 << 32)
-        longlen  = l1 + (l2 << 32)
-        shortlen = s1 + (s2 << 32)
-        flags    = f1 + (f2 << 32)
+        _  = l1 + (l2 << 32)
+        _ = s1 + (s2 << 32)
+        _    = f1 + (f2 << 32)
     else:
-        version, numstr, longlen, shortlen, flags = struct.unpack('5l', data)
+        _, numstr, _, _, _ = struct.unpack('5l', data)
 
     delimiter = datfile.read(1)
     datfile.read(3)                     # Throw away padding bytes
@@ -87,6 +87,6 @@ def get(filename):
 if __name__ == '__main__':
     import sys
     if len(sys.argv) == 1:
-        print 'Usage: fortune.py <filename>'
+        print('Usage: fortune.py <filename>')
         sys.exit()
-    print get(sys.argv[1])
+    print(get(sys.argv[1]))
