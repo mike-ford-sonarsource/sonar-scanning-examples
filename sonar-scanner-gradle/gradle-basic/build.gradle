@@ -10,8 +10,6 @@ version = '1.0'
 
 sonar {
     properties {
-        property("sonar.projectName", "Python/Java project")
-        property("sonar.projectKey", "python-java")
         property("sonar.sources", "src/main,src/python")
         property("sonar.tests", "src/test")
         property("sonar.exclusions", "**/env/**")
