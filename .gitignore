@@ -22,3 +22,6 @@ bw-outputs/
 
 # MSBuild
 obj/
+
+# VSCode
+.vscode/
